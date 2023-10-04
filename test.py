@@ -13,22 +13,26 @@ data = {
 }
 
 start_date = datetime(2023, 1, 1)  # Data inicial
-num_days = 5000
+num_days = 40
 date_df = generate_dates(start_date, num_days)
-random_y = [rd.random() for _ in range(0,len(date_df['ds']))]
-print(type(random_y))
-print(type(date_df))
-print(type(data))
-s.exit()
+random_y = [int(rd.random()*150) for _ in range(0,len(date_df))]
+# random_y = np.linspace(0,num_days,num_days)
+#random_y = [np.cos(o) for o in random_y]
+data = {
+    'ds': date_df,
+    'y': random_y
+}
 df = pd.DataFrame(data)
 print(df)
+print(type(df))
+# s.exit()
 
 
 model = Prophet()
 
 model.add_country_holidays(country_name='US')  # Exemplo de adição de feriados dos EUA
 model.fit(df)
-future = model.make_future_dataframe(periods=365)  # Prever para 365 dias adicionais
+future = model.make_future_dataframe(periods=4)  # Prever para 365 dias adicionais
 forecast = model.predict(future)
 fig = model.plot(forecast)
 components = model.plot_components(forecast)
