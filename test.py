@@ -11,18 +11,21 @@ data = {
     'ds': ['2023-01-01', '2023-01-02', '2023-01-03', '2023-01-04'],
     'y': [100, 120, 95, 105]
 }
-
-start_date = datetime(2023, 1, 1)  # Data inicial
-num_days = 40
-date_df = generate_dates(start_date, num_days)
-random_y = [int(rd.random()*150) for _ in range(0,len(date_df))]
-# random_y = np.linspace(0,num_days,num_days)
-#random_y = [np.cos(o) for o in random_y]
-data = {
-    'ds': date_df,
-    'y': random_y
-}
-df = pd.DataFrame(data)
+def generate_data(size):
+    start_date = datetime(2023, 1, 1)  # Data inicial
+    num_days = size
+    date_df = generate_dates(start_date, num_days)
+    random_y = [int(rd.random()*np.exp(-0.01*i)*150) for i in range(0,len(date_df))]
+    
+    # random_y = np.linspace(0,num_days,num_days)
+    #random_y = [np.cos(o) for o in random_y]
+    data = {
+        'ds': date_df,
+        'y': random_y
+    }
+    df = pd.DataFrame(data)
+    return df
+df = generate_data(200)
 print(df)
 print(type(df))
 # s.exit()
