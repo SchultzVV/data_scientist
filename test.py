@@ -48,4 +48,4 @@ forecast = model.predict(future)
 
 # Plotar previsões
 fig = model.plot(forecast)
-plt.savefig('forecast_plot.png')
+plt.savefig('forecast_plot_with_holidays.png')
