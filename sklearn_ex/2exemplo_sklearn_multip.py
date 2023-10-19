@@ -37,5 +37,5 @@ ax.set_zlabel('Y')
 ax.legend()
 plt.savefig('sklearn_exemple_multiplo.png')
 
-#plt.show()
+# plt.show()
 
