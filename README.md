@@ -37,7 +37,6 @@ Este repositório demonstra um fluxo completo de boas práticas de ciência de d
 - Criação de testes unitários e de integração dedicados aos pipelines de dados.
 
 Este guia resume como montar um fluxo completo, desde EDA até deploy, mantendo boas práticas de ciência de dados e automações de CI/CD para garantir modelos confiáveis e fáceis de manter.
-
 ### Estrutura de Código
 
 O diretório `src/ds_workflow` contém módulos pequenos que exemplificam cada etapa do fluxo:
@@ -50,4 +49,3 @@ O diretório `src/ds_workflow` contém módulos pequenos que exemplificam cada e
 - `main.py` – orquestrador que executa todas as etapas em sequência.
 
 Executar `python -m src.ds_workflow.main` reproduz o fluxo completo.
-
